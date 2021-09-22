@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fabric_types",
+  "info": {
+    "name": "fabric types"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "fabrics": {
+      "via": "fabric_type",
+      "collection": "fabrics"
+    }
+  }
+}

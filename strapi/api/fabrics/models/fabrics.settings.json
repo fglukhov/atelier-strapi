@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fabrics",
+  "info": {
+    "name": "fabrics",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "main_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "shades": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "product_types": {
+      "via": "fabrics",
+      "collection": "product-types"
+    },
+    "info": {
+      "type": "text"
+    },
+    "fabric_type": {
+      "model": "fabric-types",
+      "via": "fabrics"
+    },
+    "cases": {
+      "via": "fabrics",
+      "collection": "cases",
+      "dominant": true
+    }
+  }
+}

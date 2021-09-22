@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/fabric-types",
+      "handler": "fabric-types.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/fabric-types/count",
+      "handler": "fabric-types.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/fabric-types/:id",
+      "handler": "fabric-types.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/fabric-types",
+      "handler": "fabric-types.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/fabric-types/:id",
+      "handler": "fabric-types.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/fabric-types/:id",
+      "handler": "fabric-types.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

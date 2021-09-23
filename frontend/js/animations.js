@@ -96,6 +96,35 @@ function animateAll() {
 
 		});
 
+		$("main .big-header h2, main .big-header-ttl img").each(function (index, element) {
+
+			if ($(this).closest(".big-header-ttl").length) {
+				var delayVal = 0;
+			} else {
+				var delayVal = 1;
+			}
+
+
+			let elTween = TweenMax.to($(element), 1 * animMultiplier, {
+				y: 0,
+				x: 0,
+				scale: 1,
+				opacity: 1,
+				ease: Sine.easeOut,
+				// overwrite: "none",
+				delay: delayVal * .5 * animMultiplier
+			});
+
+			let elScene = new ScrollMagic.Scene({
+				triggerElement: element.closest(".big-header"),
+				offset: -200,
+				reverse: false
+			})
+				.setTween(elTween)
+				.addTo(controller);
+
+		});
+
 		$(".section-catalog .catalog-form-pic").each(function (index, element) {
 
 			let elTween = TweenMax.to($(element), 1.2 * animMultiplier, {

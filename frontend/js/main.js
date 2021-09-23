@@ -254,9 +254,10 @@ $(document).ready(function() {
 
 	// Close modal END
 
+
 	// Ajax modals
 
-	$("body").on("click", "[data-toggle='modal'][data-url]", function () {
+	$("body").on("click", "[data-toggle='modal'][data-url]:not([data-target='#servModal'])", function () {
 
 		// var curModal = $($(this).attr("data-target"));
     // console.log('cm',curModal)

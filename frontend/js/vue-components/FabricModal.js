@@ -46,7 +46,7 @@ Vue.component('fabric-modal', {
               <div class="catalog-form-wrapper catalog-form-wrapper-alt">
                 <div class="catalog-form-pic"><img src="images/catalog-form-pic.png"/></div>
                 <div class="catalog-form-inner">
-                  <h2>Получите каталог</h2>
+                  <h2>Узнайте стоимость Вашего постельного белья</h2>
                   <div class="catalog-form">
                     <form>
                       <div class="row">

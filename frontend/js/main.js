@@ -43,6 +43,137 @@ var baseUrl = "";
 
 $(document).ready(function() {
 
+	// Forms
+
+	$("#callbackForm").on("submit", function() {
+		console.log('form-submit')
+		if ($(this).valid()) {
+			console.log('form valid')
+			var form = $(this);
+			$.ajax({
+				type: "POST",
+				url: "order.php",
+				data: {
+					subject: "Claire Batiste Atelier - Заявка на обратный звонок",
+					formname: "Заказать звонок",
+					phone: $("#callback_phone").val()
+				}
+			}).done(function() {
+
+				console.log(form)
+
+				formSuccess(form);
+
+			});
+			return false;
+		}
+
+	});
+
+	$(".cat-form form").on("submit", function() {
+		if ($(this).valid()) {
+			var form = $(this);
+			$.ajax({
+				type: "POST",
+				url: "order.php",
+				data: {
+					subject: "Claire Batiste Atelier - Запрос каталога",
+					formname: "Запросить каталог (наши коллекции)",
+					phone: $("#catalog_phone").val()
+				}
+			}).done(function() {
+
+				formSuccess(form);
+
+			});
+			return false;
+		}
+	});
+
+	$("#prodModal .catalog-form form").on("submit", function() {
+		if ($(this).valid()) {
+			var form = $(this);
+			$.ajax({
+				type: "POST",
+				url: "order.php",
+				data: {
+					subject: "Claire Batiste Atelier - Запрос каталога",
+					formname: "Запросить каталог (окно продукции)",
+					name: $("#catalog_modal_name").val(),
+					phone: $("#catalog_modal_phone").val()
+				}
+			}).done(function() {
+
+				formSuccess(form);
+
+			});
+			return false;
+		}
+	});
+
+	$("#fabricModal .catalog-form form").on("submit", function() {
+		if ($(this).valid()) {
+			var form = $(this);
+			$.ajax({
+				type: "POST",
+				url: "order.php",
+				data: {
+					subject: "Claire Batiste Atelier - Запрос каталога",
+					formname: "Запросить каталог (окно ткани)",
+					name: $("#catalog_modal_name").val(),
+					phone: $("#catalog_modal_phone").val()
+				}
+			}).done(function() {
+
+				formSuccess(form);
+
+			});
+			return false;
+		}
+	});
+	$(".contacts-form form").on("submit", function() {
+		if ($(this).valid()) {
+			var form = $(this);
+			$.ajax({
+				type: "POST",
+				url: "order.php",
+				data: {
+					subject: "Claire Batiste Atelier - Приглашаем на встречу",
+					formname: "Приглашаем на встречу",
+					name: $("#contacts_name").val(),
+					phone: $("#contacts_phone").val()
+				}
+			}).done(function() {
+
+				formSuccess(form);
+
+			});
+			return false;
+		}
+	});
+
+	// Forms END
+
+	// $(".header-timetable-trigger").click(function () {
+	//
+	// 	$(".header-timetable-popup").fadeToggle(150);
+	//
+	// 	$(this).toggleClass("active");
+	//
+	// });
+	//
+	// $("body").on("click", function (e) {
+	//
+	// 	if ($(".header-timetable-trigger").hasClass("active") && !$(e.target).hasClass("header-timetable-trigger") && !$(e.target).parents().hasClass("header-timetable-trigger") && !$(e.target).hasClass("header-timetable-popup") && !$(e.target).parents().hasClass("header-timetable-popup") ) {
+	//
+	// 		$(".header-timetable-popup").fadeOut(150);
+	//
+	// 		$(".header-timetable-trigger").removeClass("active");
+	//
+	// 	}
+	//
+	// });
+
 
 	$(".modal").on("hidden.bs.modal", function () {
 
@@ -984,18 +1115,18 @@ function validateForms() {
 				}
 			},
 			submitHandler: function(form) {
-				var formData = new FormData(form);
-				$.ajax({
-					type: "POST",
-					url: $(form).attr('action'),
-					data: formData,
-					processData: false,
-					contentType: false,
-					success: function () {
-						formSuccess(form);
-					}
-				});
-				return false;
+				// var formData = new FormData(form);
+				// $.ajax({
+				// 	type: "POST",
+				// 	url: $(form).attr('action'),
+				// 	data: formData,
+				// 	processData: false,
+				// 	contentType: false,
+				// 	success: function () {
+				// 		//formSuccess(form);
+				// 	}
+				// });
+				// return false;
 			}
 		});
 		if ($(this).find("input.password").length && $(this).find("input.password-repeat").length) {
@@ -1034,7 +1165,7 @@ function formSuccess(form) {
 	$('form').find(".form-group input, .form-group textarea").val("");
 	$('form').find(".placeholder").show();
 	$("#successModal").modal("show");
-	$('form').closest(".modal").modal("hide");
+	$('form').closest(".modal").not("#prodModal").not("#fabricModal").modal("hide");
 }
 
 (function($) {

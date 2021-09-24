@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="js/fancybox/jquery.fancybox.min.css">
     <link rel="stylesheet" href="js/bootstrap-fileinput/css/fileinput.min.css">
     <link rel="stylesheet" href="css/styles.css">
-  </head>
+		<link rel="stylesheet" href="../../adidas-account-donor/build/js/bootstrap/css/bootstrap.css">
+	</head>
   <body>
     <div id="app" class="over-wrapper">
       <div id="mobile-indicator"></div>
@@ -32,7 +33,13 @@
                       <li><a href="#showroom">Шоурум</a></li>
                     </ul>
                     <div class="navbar-contacts">
-                      <div class="header-phone"><a href="tel: +7 (495) 123-45-67">+7 (495) 123-45-67</a></div>
+											<div class="navbar-phones">
+												<div class="header-phone"><a href="tel: +7 (495) 640 00 60">+7 (495) 640 00 60</a></div>
+												<div class="header-phone"><a href="tel:+7 (495) 899 00 98">+7 (495) 899 00 98</a></div>
+												<div class="header-phone"><a href="tel:+7 (968) 543 00 89">+7 (968) 543 00 89</a></div>
+											</div>
+
+<!--                      <div class="header-phone"><a href="tel: +7 (495) 123-45-67">+7 (495) 123-45-67</a></div>-->
                       <div class="header-callback"><a class="btn-callback" href="#" data-toggle="modal" data-target="#callbackModal">Заказать звонок</a></div>
                       <div class="header-soclinks"><a class="header-soclink" href="https://instagram.com/claire_batiste_atelier?utm_medium=copy_link" target="_blank"><img src="images/header-instagram.svg"></a><a class="header-soclink" href="https://www.facebook.com/groups/365272191832802" target="_blank"><img src="images/header-facebook.svg" width="20" height="20"></a></div>
                     </div>
@@ -46,7 +53,20 @@
                 <div class="header-contacts">
                   <div class="header-contacts-col-1">
                     <div class="header-phone-wrapper">
-                      <div class="header-phone"><a href="tel: +7 (495) 123-45-67">+7 (495) 123-45-67</a></div>
+											<div class="header-timetable-wrapper">
+												<div class="header-timetable-header">
+													<div class="header-phone"><a href="tel: +7 (495) 640 00 60">+7 (495) 640 00 60</a></div>
+													<div class="header-timetable-trigger"></div>
+												</div>
+												<div class="header-timetable-popup">
+													<div class="header-timetable-popup-content">
+														<div class="header-timetable-phones">
+															<p><a href="tel:+7 (495) 899 00 98">+7 (495) 899 00 98</a></p>
+															<p><a href="tel:+7 (968) 543 00 89">+7 (968) 543 00 89</a></p>
+														</div>
+													</div>
+												</div>
+											</div>
                       <div class="header-callback"><a class="btn-callback" href="#" data-toggle="modal" data-target="#callbackModal">Заказать звонок</a></div>
                     </div>
                   </div>
@@ -72,7 +92,7 @@
                       <div class="section-sup-ttl section-top-sup-ttl anim" data-anim-index="0">
                         <p>claire batiste</p>
                       </div>
-                      <h1 class="anim" data-anim-index="1">Комфорт, качество, утонченность&nbsp;&mdash; в&nbsp;каждой модели</h1>
+                      <h1 class="anim" data-anim-index="1">Восхищение с&nbsp;первого взгляда</h1>
                       <div class="section-info section-top-info anim" data-anim-index="2">
                         <p>Сделайте свой выбор</p>
                       </div>
@@ -670,7 +690,7 @@
                   <div class="contacts-address">
                     <p>119590 г. Москва 2-й Павелецкий проезд&nbsp;д.&nbsp;5&nbsp;строение 1, 1&nbsp;этаж</p>
                   </div>
-                  <div class="contacts-soclinks"><a class="contacts-soclink" href="#"><img src="images/header-instagram.svg"></a><a class="contacts-soclink" href="#"><img src="images/header-pinterest.svg"></a></div>
+                  <div class="contacts-soclinks"><a class="contacts-soclink" href="#" target="_blank"><img src="images/header-instagram.svg"></a><a class="contacts-soclink" href="https://www.facebook.com/groups/365272191832802" target="_blank"><img src="images/header-facebook.svg" width="20px"></a></div>
                   <div class="contacts-info">
                     <p>Специально для тех, кто ценит тактильные ощущения и&nbsp;хочет заранее опробовать выбранные ткани или изделия, мы&nbsp;предлагаем приехать в&nbsp;наш шоу-рум. Здесь Вы&nbsp;сможете оценить качество наших изделий изделий, приобрести готовые изделия или оформить индивидуальный заказ.</p>
                   </div>
@@ -754,7 +774,7 @@
                 <p>Заполните номер телефона и&nbsp;наш специалист свяжется с&nbsp;Вами в&nbsp;течение 15&nbsp;минут:</p>
               </div>
               <div class="modal-form">
-                <form>
+                <form id="callbackForm">
                   <div class="form-group">
                     <label class="placeholder" for="callback_phone">Телефон</label>
                     <input class="input-phone" type="text" id="callback_phone" name="callback_phone" required>

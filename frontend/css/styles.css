@@ -61,7 +61,7 @@ body {
 h1,
 .h1 {
 	font-family: 'Cormorant';
-	font-size: 80px;
+	font-size: 53px;
 	line-height: 90%;
 	font-weight: normal;
 	letter-spacing: -0.05em;
@@ -661,6 +661,10 @@ main table td:last-child {
 	background: #21306F;
 }
 
+.success-modal {
+	background: rgba(33,48,111,.8);
+}
+
 .modal-backdrop.show {
 	opacity: .9;
 }
@@ -1169,6 +1173,69 @@ ul.navbar-nav a.active {
 	display: block;
 }
 
+.header-timetable-wrapper {
+	position: relative;
+	margin: 0 12px 0 0;
+	cursor: pointer;
+}
+
+.header-timetable-header {
+	display: flex;
+	align-items: center;
+}
+
+.header-timetable-trigger {
+	width: 18px;
+	height: 18px;
+	position: relative;
+	margin: 0 0 0 8px;
+}
+
+.header-timetable-trigger:before {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: url(../images/timetable-trigger.svg) center 3px no-repeat;
+}
+
+.header-fixed .header-timetable-trigger:before {
+	background-image: url(../images/timetable-trigger-alt.svg);
+}
+
+.header-timetable-popup {
+	position: absolute;
+	right: 0px;
+	top: -10000px;
+	padding: 10px 0 0 0;
+	transition: opacity .2s ease;
+	opacity: 0;
+	white-space: nowrap;
+	font-size: 16px;
+	letter-spacing: 0.02em;
+}
+
+.header-timetable-wrapper:hover .header-timetable-popup {
+	opacity: 1;
+	top: 100%;
+}
+
+.header-timetable-popup-content {
+	display: flex;
+	background: #fff;
+	box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.1);
+	border-top: 1px solid #D8B9A6;
+	padding: 20px 26px 20px 26px;
+}
+
+.header-timetable-phones a,
+.header-timetable-phones a:focus {
+	color: #21306F !important;
+	text-decoration: none !important;
+}
+
 .header-phone-wrapper {
 	display: -ms-flexbox;
 	display: flex;
@@ -1180,7 +1247,7 @@ ul.navbar-nav a.active {
 .header-phone {
 	font-size: 16px;
 	letter-spacing: 0.02em;
-	margin: 0 12px 0 0;
+	margin: 0 0 0 0;
 }
 
 .header-phone a,
@@ -2448,7 +2515,7 @@ footer:after {
 }
 
 .prod-item-section-cases {
-	margin: 92px 0 204px 0;
+	margin: 150px 0 0 0;
 }
 
 .prod-modal-content {
@@ -3512,7 +3579,7 @@ main .des-pros-tmb {
 @media (max-width: 1199px) {
 	h1,
 	.h1 {
-		font-size: 70px;
+		/*font-size: 70px;*/
 	}
 
 	.section-info {
@@ -3636,6 +3703,24 @@ main .des-pros-tmb {
 	.catalog-form-pic {
 		width: 190px;
 	}
+
+	.header-contacts {
+		margin: 0 -10px;
+	}
+
+	.header-contacts-col-1,
+	.header-contacts-col-2 {
+		padding: 0 10px;
+	}
+
+	.header-phone {
+		letter-spacing: 0;
+	}
+
+	.header-timetable-trigger {
+		margin-left: 5px;
+	}
+
 }
 
 @media (max-width: 991px) {
@@ -3645,7 +3730,7 @@ main .des-pros-tmb {
 
 	h1,
 	.h1 {
-		font-size: 60px;
+		/*font-size: 60px;*/
 	}
 
 	.section-top-col {
@@ -3879,6 +3964,11 @@ main .des-pros-tmb {
 	.fabric-modal .section-header .h2 {
 		font-size: 40px;
 	}
+
+	.header-timetable-popup {
+		padding-top: 4px;
+	}
+
 }
 
 @media (max-width: 767px) {
@@ -4516,7 +4606,7 @@ main .des-pros-tmb {
 	}
 
 	.prod-item-section-cases {
-		margin: 60px 0 60px 0;
+		margin: 60px 0 0 0;
 	}
 
 	.catalog-form-col-narrow {
@@ -4580,6 +4670,26 @@ main .des-pros-tmb {
 
 	.big-header-ttl img {
 		height: 60px;
+	}
+
+	.header-timetable-header {
+		align-items: flex-start;
+	}
+	
+	.header-timetable-trigger:before {
+		background-position: center 4px;
+	}
+
+	.navbar-phones {
+		margin: 0 0 20px 0;
+	}
+
+	.header-timetable-trigger {
+		display: none !important;
+	}
+
+	.header-timetable-popup {
+		display: none !important;
 	}
 
 }

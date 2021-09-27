@@ -86,9 +86,9 @@ Vue.component('fabric-modal', {
               </div>
             </div>
             <div v-if="shades" class="vars-list">
-              <a v-for="shade in shades" class="vars-item" href="files/var-1-big.jpg" data-fancybox="vars">
+              <div v-for="shade in shades" class="vars-item" href="files/var-1-big.jpg">
                 <img :src="shade.url"/>
-              </a>
+              </div>
             </div>
           </div>
         </div>

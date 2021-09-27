@@ -2505,7 +2505,8 @@ footer:after {
 	letter-spacing: -0.05em;
 	text-transform: uppercase;
 	color: #21306F;
-	margin: 0 0 43px 0;
+	margin: 0 auto 43px auto;
+	max-width: 550px;
 }
 
 .prod-item-section-fabrics {
@@ -2980,6 +2981,14 @@ input[type=checkbox]:checked + label:before {
 
 .modal-form .form-footer {
 	margin: 30px 0 0 0;
+}
+
+.modal-form label.placeholder {
+	text-align: center;
+}
+
+.modal-form input {
+	text-align: center;
 }
 
 .form-footer .btn {
@@ -3574,6 +3583,34 @@ main .des-pros-tmb {
 	.navbar-contacts {
 		display: none;
 	}
+}
+
+.form-group.disabled {
+	opacity: .5;
+}
+
+.policy-modal-content {
+	padding: 80px;
+	max-width: 980px;
+	margin: 0 auto;
+}
+
+.policy-modal-content h2,
+.policy-modal-content .h2 {
+	text-transform: none;
+	font-size: 50px;
+	line-height: 1;
+	margin: 0 0 30px 0;
+	color: #21306f;
+}
+
+.policy-modal-content h3,
+.policy-modal-content .h3 {
+	text-transform: none;
+	font-size: 40px;
+	line-height: 1;
+	margin: 60px 0 30px 0;
+	color: #21306f;
 }
 
 @media (max-width: 1199px) {
@@ -4690,6 +4727,22 @@ main .des-pros-tmb {
 
 	.header-timetable-popup {
 		display: none !important;
+	}
+
+	.policy-modal-content {
+		padding: 50px 20px 50px 20px;
+	}
+
+	.policy-modal-content h2,
+	.policy-modal-content .h2 {
+		font-size: 32px;
+		margin: 0 0 20px 0;
+	}
+
+	.policy-modal-content h3,
+	.policy-modal-content .h3 {
+		font-size: 28px;
+		margin: 40px 0 20px 0;
 	}
 
 }

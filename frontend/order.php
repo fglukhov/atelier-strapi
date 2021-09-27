@@ -119,6 +119,17 @@ if ($_POST['message']) {
 	';
 }
 
+if ($_POST['comment']) {
+	$body.='
+
+		<tr>
+			<td style="font-family:Verdana,Helvetica,sans-serif;font-size:13px;line-height:22px;color:#000;vertical-align:top;padding:0 60px 1px 0;white-space:nowrap;">Комментарий:</td>
+			<td style="font-family:Verdana,Helvetica,sans-serif;color:#000;font-size:15px;line-height:22px;vertical-align:top;padding:0 0 4px 0;">'.$_POST['comment'].'</td>
+		</tr>
+
+	';
+}
+
 if ($_POST['serv']) {
 	$body.='
 
@@ -130,45 +141,56 @@ if ($_POST['serv']) {
 	';
 }
 
-if ($_POST['obj']) {
+if ($_POST['ordertype']) {
 	$body.='
 
 		<tr>
-			<td style="font-family:Verdana,Helvetica,sans-serif;font-size:13px;line-height:22px;color:#000;vertical-align:top;padding:0 60px 1px 0;white-space:nowrap;">Объект:</td>
-			<td style="font-family:Verdana,Helvetica,sans-serif;color:#000;font-size:15px;line-height:22px;vertical-align:top;padding:0 0 4px 0;">'.$_POST['obj'].'</td>
+			<td style="font-family:Verdana,Helvetica,sans-serif;font-size:13px;line-height:22px;color:#000;vertical-align:top;padding:0 60px 1px 0;white-space:nowrap;">Тип:</td>
+			<td style="font-family:Verdana,Helvetica,sans-serif;color:#000;font-size:15px;line-height:22px;vertical-align:top;padding:0 0 4px 0;">'.$_POST['ordertype'].'</td>
 		</tr>
 
 	';
 }
 
-if ($_POST['prepare']) {
+if ($_POST['ordermodel']) {
 	$body.='
 
 		<tr>
-			<td style="font-family:Verdana,Helvetica,sans-serif;font-size:13px;line-height:22px;color:#000;vertical-align:top;padding:0 60px 1px 0;white-space:nowrap;">Подготовка:</td>
-			<td style="font-family:Verdana,Helvetica,sans-serif;color:#000;font-size:15px;line-height:22px;vertical-align:top;padding:0 0 4px 0;">'.$_POST['prepare'].'</td>
+			<td style="font-family:Verdana,Helvetica,sans-serif;font-size:13px;line-height:22px;color:#000;vertical-align:top;padding:0 60px 1px 0;white-space:nowrap;">Модель:</td>
+			<td style="font-family:Verdana,Helvetica,sans-serif;color:#000;font-size:15px;line-height:22px;vertical-align:top;padding:0 0 4px 0;">'.$_POST['ordermodel'].'</td>
 		</tr>
 
 	';
 }
 
-if ($_POST['coating']) {
+if ($_POST['orderfabric']) {
 	$body.='
 
 		<tr>
-			<td style="font-family:Verdana,Helvetica,sans-serif;font-size:13px;line-height:22px;color:#000;vertical-align:top;padding:0 60px 1px 0;white-space:nowrap;">Тип покрытия:</td>
-			<td style="font-family:Verdana,Helvetica,sans-serif;color:#000;font-size:15px;line-height:22px;vertical-align:top;padding:0 0 4px 0;">'.$_POST['coating'].'</td>
+			<td style="font-family:Verdana,Helvetica,sans-serif;font-size:13px;line-height:22px;color:#000;vertical-align:top;padding:0 60px 1px 0;white-space:nowrap;">Ткань:</td>
+			<td style="font-family:Verdana,Helvetica,sans-serif;color:#000;font-size:15px;line-height:22px;vertical-align:top;padding:0 0 4px 0;">'.$_POST['orderfabric'].'</td>
 		</tr>
 
 	';
 }
 
-if ($_POST['area']) {
+if ($_POST['orderlength']) {
 	$body.='
 
 		<tr>
-			<td style="font-family:Verdana,Helvetica,sans-serif;font-size:13px;line-height:22px;color:#000;vertical-align:top;padding:0 60px 1px 0;white-space:nowrap;">Площадь, м&sup2;:</td>
-			<td style="font-family:Verdana,Helvetica,sans-serif;color:#000;font-size:15px;line-height:22px;vertical-align:top;padding:0 0 4px 0;">'.$_POST['area'].'</td>
+			<td style="font-family:Verdana,Helvetica,sans-serif;font-size:13px;line-height:22px;color:#000;vertical-align:top;padding:0 60px 1px 0;white-space:nowrap;">Длина:</td>
+			<td style="font-family:Verdana,Helvetica,sans-serif;color:#000;font-size:15px;line-height:22px;vertical-align:top;padding:0 0 4px 0;">'.$_POST['orderlength'].'</td>
+		</tr>
+
+	';
+}
+
+if ($_POST['orderwidth']) {
+	$body.='
+
+		<tr>
+			<td style="font-family:Verdana,Helvetica,sans-serif;font-size:13px;line-height:22px;color:#000;vertical-align:top;padding:0 60px 1px 0;white-space:nowrap;">Ширина:</td>
+			<td style="font-family:Verdana,Helvetica,sans-serif;color:#000;font-size:15px;line-height:22px;vertical-align:top;padding:0 0 4px 0;">'.$_POST['orderwidth'].'</td>
 		</tr>
 
 	';
@@ -214,8 +236,6 @@ if ($_POST['email']) {
 
 mail('Info@claire-batiste.com', $_POST['subject'], $body, $headers);
 mail('max@paradigma-digital.ru', $_POST['subject'], $body, $headers);
-
-
 
 //echo $body;
 

@@ -43,10 +43,32 @@ var baseUrl = "";
 
 $(document).ready(function() {
 
+	$(".form-agree a").on("click", function () {
+
+		$("#policyModal").modal("show");
+
+		return false;
+
+	});
+
+	dependentFields();
+
 	// Forms
 
+	$("#orderForm").on("submit", function() {
+
+		if ($(this).valid()) {
+
+			$("#orderModal").modal("show");
+
+		}
+
+		return false;
+
+
+	});
+
 	$("#callbackForm").on("submit", function() {
-		console.log('form-submit')
 		if ($(this).valid()) {
 			console.log('form valid')
 			var form = $(this);
@@ -69,6 +91,38 @@ $(document).ready(function() {
 		}
 
 	});
+
+	$("#orderModalForm").on("submit", function() {
+		if ($(this).valid()) {
+			console.log('form valid')
+			var form = $(this);
+			$.ajax({
+				type: "POST",
+				url: "order.php",
+				data: {
+					subject: "Claire Batiste Atelier - Заказ",
+					formname: "Сделайте заказ",
+					name: $("#order_modal_name").val(),
+					phone: $("#order_modal_phone").val(),
+					ordertype: $("[id=order_type]").val(),
+					ordermodel: $(".form-group:not(.disabled) [id^=order_model] option:selected").html(),
+					orderfabric: $(".form-group:not(.disabled) [id^=order_fabric] option:selected").html(),
+					orderlength: $(".form-group:not(.disabled) [id^=order_length] option:selected").html(),
+					orderwidth: $(".form-group:not(.disabled) [id^=order_width] option:selected").html()
+				}
+			}).done(function() {
+
+				console.log(form)
+
+				formSuccess(form);
+
+			});
+			return false;
+		}
+
+	});
+
+
 
 	$(".cat-form form").on("submit", function() {
 		if ($(this).valid()) {
@@ -97,10 +151,11 @@ $(document).ready(function() {
 				type: "POST",
 				url: "order.php",
 				data: {
-					subject: "Claire Batiste Atelier - Запрос каталога",
-					formname: "Запросить каталог (окно продукции)",
+					subject: "Claire Batiste Atelier - Узнайте стоимость",
+					formname: "Узнайте стоимость (окно продукции)",
 					name: $("#catalog_modal_name").val(),
-					phone: $("#catalog_modal_phone").val()
+					phone: $("#catalog_modal_phone").val(),
+					comment: $("#catalog_modal_message").val()
 				}
 			}).done(function() {
 
@@ -1987,6 +2042,52 @@ function fixProd() {
 
 	$(".prod-item-descr").css({
 		minHeight: $(".prod-item-slider").height()
+	});
+
+}
+
+function dependentFields() {
+
+	//$("#orderForm [type=submit]").attr("disabled", true);
+
+	$(".form-group[data-parent]").addClass("disabled");
+	$(".form-group[data-parent] select").attr("disabled", true);
+
+	$(".form-group[data-parent]").hide();
+
+	$(".form-group[data-parent]:first-child").show();
+
+	// $("#orderForm select").on("change", function () {
+	//
+	// 	console.log($("#orderForm .label:not(.active)").length)
+	//
+	// 	if ($("#orderForm .form-group:not(.disabled) label:not(.active)").length == 0) {
+	//
+	// 		$("#orderForm [type=submit]").attr("disabled", false);
+	//
+	// 	}
+	//
+	//
+	// });
+
+	$(".parent-field").on("change", function () {
+
+		console.log($(this).attr("id"))
+
+		var parentVal = $(this).val(),
+				form = $(this).closest("form"),
+				childFields = form.find(".form-group[data-parent='#" + $(this).attr("id") + "']"),
+				curFields = form.find(".form-group[data-parent='#" + $(this).attr("id") + "'][data-parent-val='" + parentVal + "']");
+
+		console.log(curFields.length)
+
+		childFields.addClass("disabled").hide();
+		childFields.find("select").attr("disabled", true).selectpicker("refresh");
+
+		curFields.removeClass("disabled").show();
+		curFields.find("select").attr("disabled", false).selectpicker("refresh");
+
+
 	});
 
 }
